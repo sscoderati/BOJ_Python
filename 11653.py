@@ -8,8 +8,10 @@ def is_prime(n):
             continue
     return True
 
+i = 2
 while n != 1:
-    for i in range(2, n):
-        while is_prime(i) == True and n % i == 0:
-            n /= i
-            print(i)
+    if n % i == 0 and is_prime(i) == True:
+        n /= i
+        print(i)
+    else:
+        i += 1
