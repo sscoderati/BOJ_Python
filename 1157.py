@@ -1,14 +1,12 @@
-import sys
+word = input().lower()
+alpha_word = list(set(word))
+cnt = []
 
-s = input()
-tmp = 0
-for i in range(len(s) - 1):
-    if s.count(s[i + 1]) > s.count(s[tmp]):
-        tmp = i + 1
-    elif((s[tmp] != s[i + 1]) and (s.count(s[i + 1]) == s.count(s[tmp]))):
-        print('?')
-        sys.exit()
-    else:
-        continue
+for i in alpha_word:
+    count = word.count(i)
+    cnt.append(count)
 
-print(s[tmp])
+if cnt.count(max(cnt)) > 1:
+    print('?')
+else:
+    print(alpha_word[cnt.index(max(cnt))].upper())
